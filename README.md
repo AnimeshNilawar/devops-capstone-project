@@ -1,4 +1,5 @@
 # devops-capstone-project
+![Build Status](https://github.com/AnimeshNilawar/devops-capstone-project/actions/workflows/ci-build.yaml/badge.svg)
 
 This project is part of a DevOps capstone lab focused on Agile planning and microservice development.
 

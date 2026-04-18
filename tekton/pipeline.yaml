@@ -41,6 +41,7 @@ spec:
       runAfter:
         - init
 
+    # 🔹 Lint
     - name: lint
       workspaces:
         - name: source
@@ -52,5 +53,20 @@ spec:
           value: "python:3.9-slim"
         - name: args
           value: ["--count","--max-complexity=10","--max-line-length=127","--statistics"]
+      runAfter:
+        - clone
+
+    # Tests
+    - name: tests
+      workspaces:
+        - name: source
+          workspace: pipeline-workspace
+      taskRef:
+        name: nose
+      params:
+        - name: args
+          value: "-v --with-spec --spec-color"
+        - name: database_uri
+          value: "sqlite:///test.db"
       runAfter:
         - clone
